@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import './Input.css';
 
-const Input = ({ type = 'text', maxLength = 50, required = false, name, label, ...props }) => (
-  <div className="input-wrapper">
+const Checkbox = ({ maxLength = 50, required = false, name, label, ...props }) => (
+  <div className="checkbox-wrapper">
     <label htmlFor={name}>{
       label}
     </label>
 
     <input
-      type={type}
+      type="checkbox"
       name={name}
       id={name}
       maxLength={maxLength}
@@ -19,7 +19,7 @@ const Input = ({ type = 'text', maxLength = 50, required = false, name, label, .
   </div>
 );
 
-Input.propTypes = {
+Checkbox.propTypes = {
   type: PropTypes.string,
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
@@ -28,5 +28,5 @@ Input.propTypes = {
 };
 
 
-export default Input
+export default Checkbox
 

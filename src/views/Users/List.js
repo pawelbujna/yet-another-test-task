@@ -1,45 +1,36 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import usersApi from './../../api/usersApi';
 import Pagination from '././../../components/Pagination'
 import Loader from './../../components/Loader';
 import RouterLink from './../../components/core/RouterLink'
+import { getUsers } from './../../store/actions/userActions'
 
-import { setUsers as setUsersAction } from './../../store/actions'
+const mapDispatchToProps = dispatch => ({
+  getUsers: (currentPage, itemsPerPage) => { dispatch(getUsers(currentPage, itemsPerPage)) }
+});
+
+const mapStateToProps = state => {
+  return {
+    users: state.users.list,
+    isLoading: state.loader.isLoading,
+    currentPage: state.pagination.currentPage,
+    pagesAmount: state.pagination.pagesAmount
+  }
+};
 
 class List extends Component {
-  state = {
-    users: [],
-    currentPage: 1,
-    usersPerPage: 2,
-    pagesAmount: 0
-  }
+  itemsPerPage = 4;
 
   componentDidMount() {
-    this.getUsers(this.state.currentPage);
-  }
-
-  async getUsers(pageNumber) {
-    this.setState({
-      isLoading: true
-    })
-
-    const result = await usersApi.get(pageNumber, this.state.usersPerPage);
-    this.props.setUsers(result.data);
-
-    this.setState({
-      isLoading: false,
-      pagesAmount: result.pagesAmount
-    })
+    this.props.getUsers(this.props.currentPage, this.itemsPerPage);
   }
 
   render() {
-    const { users } = this.props
-    const { currentPage, isLoading, pagesAmount } = this.state
+    const { users, isLoading, currentPage, pagesAmount } = this.props
 
     const changePage = (pageNumber) => {
-      this.getUsers(pageNumber)
+      this.props.getUsers(pageNumber, this.itemsPerPage);
     }
 
     return (
@@ -53,10 +44,10 @@ class List extends Component {
           </div>
           {users.map((user, index) => {
             return <div className="list" key={index}>
+              <div>{user.avatarUrl}</div>
               <div>{user.id}</div>
               <div>{user.firstname}</div>
               <div>{user.lastname}</div>
-              <div>{user.avatarUrl}</div>
               <div>{user.email}</div>
               <div>{user.phone}</div>
               <div>{user.phone}</div>
@@ -73,14 +64,5 @@ class List extends Component {
     );
   }
 }
-
-const mapDispatchToProps = dispatch => ({
-  setUsers: users => { dispatch(setUsersAction(users)) }
-});
-
-const mapStateToProps = state => {
-  const { users } = state
-  return { users };
-};
 
 export default connect(mapStateToProps, mapDispatchToProps)(List);

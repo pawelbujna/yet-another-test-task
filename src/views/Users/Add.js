@@ -1,10 +1,10 @@
 import React from 'react';
 
+import Form from './Form';
+
 const Add = () => {
   return (
-    <div className="list-wrapper">
-      Add user
-    </div>
+    <Form />
   );
 }
 

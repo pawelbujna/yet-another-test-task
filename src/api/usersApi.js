@@ -55,6 +55,46 @@ const dataMock = [
     phone: '792225950',
     hasPremium: true,
     bids: []
+  },
+  {
+    id: '6',
+    firstname: 'Paweł',
+    lastname: 'Bujna',
+    avatarUrl: 'https://avatars3.githubusercontent.com/u/18085193?s=460&v=4',
+    email: 'pawelbujna@gmail.com',
+    phone: '792225950',
+    hasPremium: true,
+    bids: []
+  },
+  {
+    id: '7',
+    firstname: 'Paweł',
+    lastname: 'Bujna',
+    avatarUrl: 'https://avatars3.githubusercontent.com/u/18085193?s=460&v=4',
+    email: 'pawelbujna@gmail.com',
+    phone: '792225950',
+    hasPremium: true,
+    bids: []
+  },
+  {
+    id: '8',
+    firstname: 'Paweł',
+    lastname: 'Bujna',
+    avatarUrl: 'https://avatars3.githubusercontent.com/u/18085193?s=460&v=4',
+    email: 'pawelbujna@gmail.com',
+    phone: '792225950',
+    hasPremium: true,
+    bids: []
+  },
+  {
+    id: '9',
+    firstname: 'Paweł',
+    lastname: 'Bujna',
+    avatarUrl: 'https://avatars3.githubusercontent.com/u/18085193?s=460&v=4',
+    email: 'pawelbujna@gmail.com',
+    phone: '792225950',
+    hasPremium: true,
+    bids: []
   }
 ]
 
@@ -66,13 +106,16 @@ const mockPromise = data => {
   });
 };
 
-const get = (pageNumber = 1, usersPerPage = 2) => {
+const get = (pageNumber, usersPerPage) => {
   const lastItemIndex = pageNumber * usersPerPage;
   const firstItemIndex = lastItemIndex - usersPerPage;
 
   return mockPromise({
     data: dataMock.slice(firstItemIndex, lastItemIndex),
-    pagesAmount: Math.ceil(dataMock.length / usersPerPage)
+    pagination: {
+      currentPage: pageNumber,
+      pagesAmount: Math.ceil(dataMock.length / usersPerPage)
+    }
   })
 }
 

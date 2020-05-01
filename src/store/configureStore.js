@@ -1,5 +1,9 @@
-import { createStore, compose } from 'redux';
-import reducers from './reducers';
+import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
+import thunk from "redux-thunk";
+
+import users from './reducers/users';
+import loader from './reducers/loader';
+import pagination from './reducers/pagination';
 
 const configureStore = (preloadedState) => {
   const enhancers = [];
@@ -13,9 +17,14 @@ const configureStore = (preloadedState) => {
   }
 
   return createStore(
-    reducers,
+    combineReducers({
+      users,
+      loader,
+      pagination
+    }),
     preloadedState,
     compose(
+      applyMiddleware(thunk),
       ...enhancers
     )
   );

@@ -9,7 +9,7 @@ import { Provider } from 'react-redux'
 import Nav from './components/Navbar'
 
 import List from './views/Users/List'
-import AddUser from './views/Users/AddUser'
+import Add from './views/Users/Add'
 
 const Root = ({ store }) => (
   <Provider store={store} >
@@ -20,7 +20,7 @@ const Root = ({ store }) => (
 
         <Switch>
           <Route path="/" component={List} exact />
-          <Route path="/add" component={AddUser} exact />
+          <Route path="/add" component={Add} exact />
         </Switch>
       </div>
     </Router>
