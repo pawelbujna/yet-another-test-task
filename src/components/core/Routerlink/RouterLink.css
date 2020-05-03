@@ -1,0 +1,21 @@
+.router-link,
+.router-link:visited,
+.router-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90px;
+  height: 35px;
+  border-radius: 4px;
+  text-decoration: none;
+  background-color: #1cb900;
+  color: #fff;
+  font-weight: 600;
+  font-size: 11px;
+  transition: all 0.2s;
+  margin-bottom: 10px;
+}
+
+.router-link:hover {
+  background-color: #199c02;
+}

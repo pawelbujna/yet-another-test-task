@@ -1,0 +1,22 @@
+.submit-wrapper input {
+  background: none;
+  border: none;
+
+  width: 90px;
+  height: 35px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 11px;
+  transition: all 0.2s;
+  margin: 4px;
+  border: 1px solid #1cb900;
+  background-color: #1cb900;
+  margin-top: 20px;
+}
+
+.submit-wrapper input:hover {
+  cursor: pointer;
+  background-color: #167c04;
+}

@@ -1,0 +1,36 @@
+button {
+  background: none;
+  border: none;
+
+  width: 90px;
+  height: 35px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 11px;
+  transition: all 0.2s;
+  margin: 4px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.button-primary {
+  border: 1px solid #1cb900;
+  background-color: #1cb900;
+}
+
+.button-primary:hover {
+  background-color: #167c04;
+}
+
+.button-danger {
+  border: 1px solid #b90000;
+  background-color: #b90000;
+}
+
+.button-danger:hover {
+  background-color: #950000;
+}

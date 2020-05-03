@@ -1,0 +1,11 @@
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-wrapper label {
+  color: rgb(110, 110, 110);
+  font-size: 11px;
+  margin-right: 5px;
+  padding-bottom: 2px;
+}

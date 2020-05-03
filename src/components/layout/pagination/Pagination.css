@@ -1,0 +1,19 @@
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+}
+
+li {
+  margin: 0;
+}
+
+
+.active button {
+  background-color: #168b02;
+}
+
